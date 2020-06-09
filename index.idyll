@@ -8,18 +8,18 @@
 
   [Slide]
     [Header
-      title:"A (Gentle) Introduction to Graphs"
-      subtitle:"and Graph Algorithms"
+      title:"An Introduction to Graphs"
+      subtitle:"Graph Theory"
       author:"Pratham Joshi"
       fullWidth:true color:"black" background:"#fff" /]
     [NetworkGraph /]
   [/Slide]
 
   [Slide]
-    ## A (Gentle) Introduction to Graphs: Agenda
+    ## An Introduction to Graphs: Main Agenda
 
 * What is a Graph?
-* Usage of Graphs
+* Example Usage of Graphs
 * Graph Terminology
 * Nodes and Edges
 * Weights
@@ -28,11 +28,17 @@
 * Graph Data Structure Representations
 * Graph Traversal Algorithms
 * Breadth-first Search (BFS)
+
+  [/Slide]
+
+  [Slide]
+    ## An Introduction to Graphs: Further Topics
+
 * Depth-first Search (DFS)
 * Shortest Path Problem
 * Dijkstra's Algorithm
-* (Other shortest path algorithms)
-* (Sneak-peak into the Travelling Salesperson)
+* The Travelling Salesperson
+
   [/Slide]
 
     [Slide]
@@ -51,8 +57,86 @@ some pairs of the objects are in some sense **related**."
 
 
   [/Slide]
- 
 
+   [Slide]
+  ## But what are these **objects** and what are these **relations**?
+  [/Slide]
+
+  [Slide]
+  ## Exhibit A: HVV
+  [img src:"static/images/hvv.png" className:"hvv" /]
+  [/Slide]
+
+  [Slide]
+  ## Exhibit B: The DASHboard
+
+  [img src:"static/images/dash.png" className:"dash" /]
+  [/Slide]
+
+  [Slide]
+  ## Exhibit C: KarDASHians™
+
+  [img src:"static/images/kard.png" className:"hvv" /]
+  [/Slide]
+
+   [Slide]
+  ## Graph Terminology: Direction
+
+  [DirectedGraph /]
+ 
+  [/Slide]
+
+  
+   [Slide]
+  ## Graph Terminology: Weights
+
+  [WeightedGraph /]
+ 
+  [/Slide] 
+      [Slide]
+  ## Graph Terminology: Node, Edges, Direction and Weight
+
+  ![placekitten](http://placekitten.com/800/600)
+
+    [Button onClick:`alert("buttz")`]
+    Toggle Directed
+    [/Button]
+    [Button onClick:`alert("booty")`]
+    Toggle Weighted
+    [/Button]
+
+  [/Slide]
+
+  [Slide]
+    ## Graph Respresentations A: Adjacency Matrix
+
+  [/Slide]
+
+  [Slide]
+    ## Graph Representations B: Adjacency Lists 
+
+    Example in *pseudo-code*:
+
+    ```
+    graph = {}
+    graph["a"] = ["b", "c"]
+    graph["b"] = ["c"]
+    ```
+
+  [/Slide]
+
+  [Slide]
+    ## Graph Operations (abstractions):
+  [/Slide]
+
+  [Slide]
+    # Graph Traversal Algorithms
+
+    * Breadth-first Traversal:
+
+    [img src:"static/images/bfs.gif" className:"bfsGif" /]
+  [/Slide]
+  
   [Slide]
     # Breadth-first Search
     [var name:"bfs" value:`false ` /]
@@ -63,11 +147,21 @@ some pairs of the objects are in some sense **related**."
   [/Slide]
   [Slide]
     # Depth-first Search
-    [var name:"dfs" value:`false ` /]
-    [DfsGraph runDfs:dfs testColor:"red"/]
-    [Button onClick:`dfs = !dfs `]
-    DFS
-    [/Button]
+    [img src:"static/images/dfs.gif" className:"dfsGif" /]
+  [/Slide]
+[Slide]
+  ## Want more graph? 
+
+* Shortest-path Problem:
+* BFS for shortest-path (we already saw how it works!)
+* Dijkstra's Algorithm
+* Travelling Salesman Problem
+[img src:"static/images/tour.png" className:"tour" /]
+
+[/Slide]
+  [Slide]
+    # Thank You! XKCD 399:
+    [img src:"static/images/tsp.png" className:"hvv" /]
   [/Slide]
 
 

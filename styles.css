@@ -30,3 +30,28 @@
 h1.hed {
   font-size: 3.5em;
 }
+
+.hvv { 
+  width: 90%;
+  height: 90%; 
+}
+
+.tour { 
+  width: 30%;
+  height: 30%; 
+}
+
+.dash {
+  padding: 50px 50px 50px 50px;
+}
+
+.bfsGif {
+  width: 30%;
+  height: 30%;
+}
+
+
+.hvv, .dash, .bfsGif, .dfsGif, .tour { 
+  border-style: solid;
+  border-width: 1px;
+}

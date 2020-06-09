@@ -1,0 +1,74 @@
+[meta title:"Slideshow" description:"Short description of your project" /]
+
+[var name:"currentSlide" value:0 /]
+[var name:"numSlides" value:0 /]
+
+[Slideshow currentSlide:currentSlide numSlides:numSlides fullWidth:true]
+
+
+  [Slide]
+    [Header
+      title:"A (Gentle) Introduction to Graphs"
+      subtitle:"and Graph Algorithms"
+      author:"Pratham Joshi"
+      fullWidth:true color:"black" background:"#fff" /]
+    [NetworkGraph /]
+  [/Slide]
+
+  [Slide]
+    ## A (Gentle) Introduction to Graphs: Agenda
+
+* What is a Graph?
+* Usage of Graphs
+* Graph Terminology
+* Nodes and Edges
+* Weights
+* Direction
+* Cycles
+* Graph Data Structure Representations
+* Graph Traversal Algorithms
+* Breadth-first Search (BFS)
+* Depth-first Search (DFS)
+* Shortest Path Problem
+* Dijkstra's Algorithm
+* (Other shortest path algorithms)
+* (Sneak-peak into the Travelling Salesperson)
+  [/Slide]
+
+    [Slide]
+    ## So what is a graph? 
+
+* From Wikipedia:
+
+"In mathematics, and more specifically in graph theory,
+a graph is a structure amounting to a **set of objects** in which
+some pairs of the objects are in some sense **related**."
+
+* Each object = **Node** or **Vertex**
+* Each relation = **Edge**
+
+[NetworkGraph /]
+
+
+  [/Slide]
+ 
+
+  [Slide]
+    # Breadth-first Search
+    [var name:"bfs" value:`false ` /]
+    [BfsGraph runBfs:bfs testColor:"red"/]
+    [Button onClick:`bfs = !bfs `]
+    BFS
+    [/Button]
+  [/Slide]
+  [Slide]
+    # Depth-first Search
+    [var name:"dfs" value:`false ` /]
+    [DfsGraph runDfs:dfs testColor:"red"/]
+    [Button onClick:`dfs = !dfs `]
+    DFS
+    [/Button]
+  [/Slide]
+
+
+[/Slideshow]

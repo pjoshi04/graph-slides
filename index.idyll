@@ -10,7 +10,7 @@
     [Header
       title:"An Introduction to Graphs"
       subtitle:"(Graph Theory/Mathematics)"
-      author:"Pratham Joshi"
+      author:"Pratham Joshi ('dash-ian)"
       fullWidth:true color:"black" background:"#fff" /]
     [NetworkGraph /]
   [/Slide]
@@ -24,7 +24,6 @@
 * Nodes and Edges
 * Weights
 * Direction
-* Cycles
 * Graph Data Structure Representations
 * Graph Traversal Algorithms
 * Breadth-first Search (BFS)
@@ -74,8 +73,10 @@ some pairs of the objects are in some sense **related**."
    [Slide]
   ## Graph Terminology: Direction
 
-  A directed graph (or digraph) is a graph that is made up of a set of vertices connected by edges,
+* A directed graph (or digraph) is a graph that is made up of a set of vertices connected by edges,
   where the edges have a direction associated with them. 
+
+* NodeA -> Node B != NodeB -> NodeA
 
   [DirectedGraph /]
  
@@ -85,13 +86,15 @@ some pairs of the objects are in some sense **related**."
    [Slide]
   ## Graph Terminology: Weights
 
-  A weighted graph is a graph in which each branch is given a numerical weight.
+* A weighted graph is a graph in which each branch is given a numerical weight.
+
+* The weight determines the **magnitude** of the edge. Eg. distance
 
 
   [WeightedGraph /]
  
   [/Slide] 
- 
+
 
   [Slide]
     ## Graph Respresentations A: Adjacency Matrix
@@ -130,31 +133,30 @@ some pairs of the objects are in some sense **related**."
   [/Slide]
 
   [Slide]
-    # Graph Traversal Algorithms: Breadth-first Traversal(BFS)
+    # Graph Traversal Algorithms: 
+  
+* Breadth-first Traversal
+* Depth-first Traversal
 
-    [img src:"static/images/bfs.gif" className:"bfsGif" /]
+    [img src:"static/images/bfsdfs.png" /]
   [/Slide]
   [Slide]
-    # Graph Traversal Algorithms: Depth-first Traversal(DFS)
-    [img src:"static/images/dfs.gif" className:"dfsGif" /]
-  [/Slide]
-  [Slide]
-    # Implementation: Breadth-first Traversal(BFS)
+    # Implementation: Breadth-first Traversal (BFS)
 
     ```
-      procedure BFS(G, start_v) is
-     let Q be a queue
-      label start_v as discovered
-      Q.enqueue(start_v)
-      while Q is not empty do
-          // v := Q.dequeue()
-          // if v is the goal then
-          //     return v
-          for all edges from v to w in G.adjacentEdges(v) do
-             if w is not labeled as discovered then
-                 label w as discovered
-                 w.parent := v
-                 Q.enqueue(w)
+      Taking graph G and start vertex start_v
+      BFS(G, start_v, (end_v)):
+        initialize new queue Q (FIFO)
+        Mark start_v as discovered
+        push start_v to Q \\ i.e. Q.push(start_v)
+        while Q is not empty:
+            pop next vertex v from Q
+            // (if v equals end_v:
+            //     return v )
+            for all edges from v to w in G.getEdges(v):
+              if w is not discovered:
+                  label w as discovered
+                  Q.enqueue(w)
     ```
   [/Slide]
   [Slide]
@@ -166,32 +168,61 @@ some pairs of the objects are in some sense **related**."
     [/Button]
   [/Slide]
   [Slide]
-    # Implementation: Depth-first Traversal(DFS)
+    # Implementation: Depth-first Traversal (DFS)
 
     ```
-    procedure DFS(G, v) is
-    label v as discovered
-    for all directed edges from v to w that are in G.adjacentEdges(v) do
-        if vertex w is not labeled as discovered then
-            recursively call DFS(G, w)
+    Taking graph G and start vertex v:
+    DFS(G, v): 
+      mark v as discovered // eg. add to a stack
+      for all edges from v to w in G.getEdges(v):
+        if (w is not yet discovered): //eg. by checking discovered stack
+          DFS(g, w) // recurse with new vertex w
     ```
+    [img src:"static/images/dfs.gif" className:"dfsGif" /]
   [/Slide]
-  
+[Slide]
+## Shortest-path Problem
+
+* We already saw one!: BFS for shortest path when Graph is **unweighted**:
+ ```
+    Taking graph G and start vertex start_v
+    BFS(G, start_v, end_v):
+      initialize new queue Q (FIFO)
+      Mark start_v as discovered
+      push start_v to Q \\ i.e. Q.push(start_v)
+      while Q is not empty:
+          pop next vertex v from Q
+          if v equals end_v:
+              return v 
+          for all edges from v to w in G.getEdges(v):
+            if w is not discovered:
+                label w as discovered
+                Q.enqueue(w)
+  ```
+* Dijkstra's Algorithm
+[/Slide]
   
 [Slide]
-  ## More graph? 
+  ## Travelling Salesman Problem
 
-* Shortest-path Problem:
-* BFS for shortest-path when there are no weights (we already saw how it works!)
-* Dijkstra's Algorithm
-* Travelling Salesman Problem
+```
+Given a list of cities and the distances between each pair of cities,
+what is the shortest possible route that visits each city
+and returns to the origin city?
+```
+* The traveling salesman problem is **NP-hard** (non-deterministic polynomial)
 [img src:"static/images/tour.png" className:"tour" /]
 
 [/Slide]
   [Slide]
     # Thank You! XKCD 399:
     [img src:"static/images/tsp.png" className:"hvv" /]
+  References: 
+  - Grokking Algorithms, CLRS Algorithms, Wikipedia
+  
+  Tools:
+  - Idyll, D3.js
   [/Slide]
-
+ 
 
 [/Slideshow]

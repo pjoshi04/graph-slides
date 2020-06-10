@@ -35,8 +35,8 @@ class WeightedGraph extends D3Component {
     var graph = d3.select(node).append('svg')
     .attr("width", w)
     .attr("height", h)
-    .style("margin-top", "-100px")
-    .style("margin-left", "200px");
+    .style("margin-top", "100px")
+    //.style("margin-left", "200px");
     //.style("padding", "20 20 20 20");
 
     var path = graph.append("g") 
@@ -99,16 +99,16 @@ function distance(x1, y1, x2, y2) {
  }
 
 function handleNodeMouseOver(d, i){
-  // d3.select(this)
-  //   .attr("stroke-width", "6px")
-  //   .attr("stroke", "#455954")
-  //   .attr("r", "40px")
+  d3.select(this)
+    .attr("stroke-width", "5px")
+    .attr("stroke", "red")
+    .attr("r", "25px")
 }
 
 function handleNodeMouseOut(d, i){
-  // d3.select(this)
-  //   .attr("r", "30px")
-  //   .attr("stroke", "#9d7463");
+  d3.select(this)
+    .attr("r", "20px")
+    .attr("stroke", "#9d7463");
 }
 
 

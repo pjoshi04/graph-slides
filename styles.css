@@ -50,6 +50,11 @@ h1.hed {
   height: 30%;
 }
 
+.list {
+  width: 20%;
+  height: 20%;
+}
+
 
 .hvv, .dash, .bfsGif, .dfsGif, .tour { 
   border-style: solid;

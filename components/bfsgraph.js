@@ -117,6 +117,18 @@ function bfsLoop(network, queue, end) {
       if (next == end) {
           return
       }
+
+      var circleNodes = graph.selectAll("circle2").data(network.node(next))
+
+      circleNodes.enter().append("circle")
+      .attr("class", "nodes")
+      .attr("cx", function(d) {return d.x + 100;})
+      .attr("cy", function(d) {return d.y + 100;})
+      .attr("r", "40px")
+      .attr("stroke-width", "4px") 
+      .attr("fill", "yellow")
+      .attr("stroke", "#9d7463");
+
       var currNodes = graph.selectAll("line2").data(network.outEdges(next))
       
       currNodes.enter().append("line")  
@@ -125,11 +137,12 @@ function bfsLoop(network, queue, end) {
       .attr("y1", function(d) {return network.node(d.v).y})
       .attr("x2", function(d) {return network.node(d.w).x})
       .attr("y2", function(d) {return network.node(d.w).y})
-      .style("stroke-width", "8px")
-      .style("stroke", "red")
+      .style("stroke-width", "4px")
+      .style("stroke", "#9d7463")
       .transition()
       .delay(300);
 
+     
       network.outEdges(next).forEach(edge => {
           if (queue.indexOf(edge.w) === -1){queue.push(edge.w)}
       })

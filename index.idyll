@@ -145,28 +145,27 @@ some pairs of the objects are in some sense **related**."
 
     ```
       Taking graph G and start vertex start_v
-      BFS(G, start_v, (end_v)):
+      BFS(G, start_v):
         initialize new queue Q (FIFO)
         Mark start_v as discovered
         push start_v to Q \\ i.e. Q.push(start_v)
         while Q is not empty:
             pop next vertex v from Q
-            // (if v equals end_v:
-            //     return v )
             for all edges from v to w in G.getEdges(v):
               if w is not discovered:
                   label w as discovered
                   Q.enqueue(w)
     ```
+    [img src:"static/images/bfs.gif" className:"dfsGif" /]
   [/Slide]
-  [Slide]
-    # Breadth-first Search
-    [var name:"bfs" value:`false ` /]
-    [BfsGraph runBfs:bfs testColor:"red"/]
-    [Button onClick:`bfs = !bfs `]
-    BFS
-    [/Button]
-  [/Slide]
+  // [Slide]
+  //   # Breadth-first Search
+  //   [var name:"bfs" value:`false ` /]
+  //   [BfsGraph runBfs:bfs testColor:"red"/]
+  //   [Button onClick:`bfs = !bfs `]
+  //   BFS
+  //   [/Button]
+  // [/Slide]
   [Slide]
     # Implementation: Depth-first Traversal (DFS)
 
@@ -211,17 +210,20 @@ what is the shortest possible route that visits each city
 and returns to the origin city?
 ```
 * The traveling salesman problem is **NP-hard** (non-deterministic polynomial)
+* Naive algorithm is O(N!) 
+* 100 cities = 100 * 99 * 98 *... 
 [img src:"static/images/tour.png" className:"tour" /]
 
 [/Slide]
   [Slide]
-    # Thank You! XKCD 399:
+    # Thank You! 
+    
+  XKCD 399:
     [img src:"static/images/tsp.png" className:"hvv" /]
   References: 
   - Grokking Algorithms, CLRS Algorithms, Wikipedia
-  
-  Tools:
-  - Idyll, D3.js
+
+
   [/Slide]
  
 

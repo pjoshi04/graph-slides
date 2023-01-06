@@ -10,7 +10,7 @@
   "dependencies": {
     "@dagrejs/graphlib": "^2.1.4",
     "d3": "^4.0.0",
-    "idyll": "^4.0.0",
+    "idyll": "^6.0.0-alpha.6",
     "idyll-d3-component": "^2.1.0",
     "react-map-gl": "^5.0.3",
     "vega": "^5.4.0",
